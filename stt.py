@@ -13,6 +13,8 @@ def getStats(stattype):
 	    		if(buyin[1] != '0'): # exclude freeroll case for rake
 	    			b = buyin.split('-')[0]
 	    			r = buyin.split('-')[1]
+	    			if(b.find('TT') >= 0): # Tournament Ticket (might track later)
+	    				b = b[2:]
 	    			totalbuyin = totalbuyin + float(b[1:len(b)]) + float(r[1:len(r)])
 	    		for line in open(dir + '//' + file):
 	    			if '[ME] : Prize Cash' in line:
